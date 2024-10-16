@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto</title>
+    <script src="https://kit.fontawesome.com/f68e853c4b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section>
+        <div class="contenedor">
+            <div class="formulario">
+                <form action="#">
+                    <h2>Calculadora de papel</h2>
+
+                    <div class="input-contenedor">
+                        <input type="number" id="ancho" required>
+                        <label for="#">Ancho</label>
+                    </div>
+
+                    <div class="input-contenedor">
+                        <input type="number" id="fuelle" required>
+                        <label for="#">fuelle</label>
+                    </div>
+
+                    <div class="input-contenedor">
+                        <input type="number" id="alto" required>
+                        <label for="#">Alto</label>
+                    </div>
+
+                    <div class="input-contenedor">
+                        <input type="number" id="gramaje" required>
+                        <label for="#">Gramaje</label>
+                    </div>
+
+                    <div class="input-contenedor">
+                        <input type="number" id="cantidad" required>
+                        <label for="#">Cantidad</label>
+                    </div>
+                    <div class="buton">
+                        <button type="button" onclick="calcular()">Calcular</button>
+                    </div>
+                    <div class="resultado">
+                        <h2>Resultado en toneladas: <span id="resultado1"></span></h2>
+                    </div>
+                </form>
+            </div>
+            <div class="operacion">
+            <script>
+                function calcular() {
+                    const ancho = parseFloat(document.getElementById('ancho').value);
+                    const fuelle = parseFloat(document.getElementById('fuelle').value);
+                    const alto = parseFloat(document.getElementById('alto').value);
+                    const gramaje = parseFloat(document.getElementById('gramaje').value);
+                    const cantidad = parseFloat(document.getElementById('cantidad').value);
+        
+                    let resultado = ancho + fuelle;
+        
+                    resultado = (resultado * 2) + 2;
+        
+                    resultado = parseFloat("0." + resultado) * alto;
+        
+                    resultado = parseFloat("0." + resultado) * gramaje;
+        
+                    resultado = resultado * cantidad;
+        
+                    resultado = resultado * 1.1;
+        
+                    resultado = Math.ceil(resultado / 1000000);
+        
+                    document.getElementById('resultado1').innerText = resultado;
+                }
+            </script>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
